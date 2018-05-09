@@ -41,6 +41,7 @@ switch (_presetName) do {
     case "naval_west" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Ship')})", true];
         _return = _return apply {configName _x};
+        _return append ["B_G_Boat_Transport_02_F"];
     };
     case "logistic_west" : {
         _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
@@ -50,6 +51,7 @@ switch (_presetName) do {
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_NATO_AmmoVeh_F"];
+        _return append ["Land_PortableLight_double_F","Land_PortableLight_single_F"];
         _return arrayIntersect _return;
     };
 
@@ -74,6 +76,7 @@ switch (_presetName) do {
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_East_AmmoVeh_F"];
+        _return append ["Land_PortableLight_double_F","Land_PortableLight_single_F"];
         _return = _return select {!((toLower _x) in ["rhs_9k79_b"])};
         _return arrayIntersect _return;
     };
@@ -102,7 +105,8 @@ switch (_presetName) do {
         _return = _return apply {configName _x};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
-        _return append ["Box_IND_AmmoVeh_F"];
+        _return append ["Box_IND_AmmoVeh_F"];        
+        _return append ["Land_PortableLight_double_F","Land_PortableLight_single_F"];
         _return arrayIntersect _return;
     };
 
